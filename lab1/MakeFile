@@ -1,0 +1,6 @@
+compile:
+	gcc -c func.c -o func
+clean:
+	rm -f func.o
+run:
+	./main
