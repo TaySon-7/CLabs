@@ -25,9 +25,6 @@ node* add_node(int data, node* root) {
     else if (data > root->data) {
         root->right = add_node(data, root->right);
     }
-    else {
-        printf("В упорядоченном двоичном дереве не могут хранится дубликаты\n");
-    }
     return root;
 }
 
@@ -88,7 +85,9 @@ int depth(node* root) {
     if (root == NULL) {
         return 0;
     }
-    return 1 + depth(root->left) + depth(root->right);
+    int left = depth(root->left);
+    int right = depth(root->right);
+    return 1 + (right > left? right : left);
 }
 
 

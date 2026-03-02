@@ -4,7 +4,6 @@
 int main(){
     int choice;
     int data;
-    int c;
     node* root = NULL;
     printf("Hello, It is binary tree!\n");
     printf("You have this actions to build your tree and check its depth:\n");
@@ -16,11 +15,15 @@ int main(){
     while (1) {
         printf("Your choice: ");
         scanf("%d", &choice);
+        while (getchar() != '\n');
         switch (choice) {
             case 1:
                 printf("Enter data:");
                 if (scanf("%d", &data) == 1) {
-                    printf("Adding: %d\n", data);
+                    root = add_node(data, root);
+                }
+                else {
+                    printf("Invalid input!\n");
                 }
                 while (getchar() != '\n');
                 break;
@@ -30,8 +33,13 @@ int main(){
                 break;
             case 3:
                 printf("Enter data: ");
-                scanf("%d", &data);
-                root = delete_node(root, data);
+                if (scanf("%d", &data) == 1) {
+                    root = delete_node(root, data);
+                }
+                else {
+                    printf("Invalid input!\n");
+                }
+                while (getchar() != '\n');
                 break;
             case 4:
                 printf("%d\n", depth(root));
