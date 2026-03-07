@@ -6,8 +6,8 @@
 void test_sort_first_order(char** correct_keys, char** correct_values, char** keys, char** values) {
     insertionSort(keys, 21, values);
     for (int i = 0; i < 21; i++) {
-        assert(strcmp(correct_keys[i], keys[i]) == 0);
-        assert(strcmp(correct_values[i], values[i]) == 0);
+        assert(strcmp(correct_keys[i], keys[i]) == 0 && "Ошибка на тесте 1");
+        assert(strcmp(correct_values[i], values[i]) == 0 && "Ошибка на тесте 1");
     }
 }
 
@@ -19,8 +19,8 @@ void test_sort_second_order(char** correct_keys, char** correct_values) {
     int n = t->len;
     insertionSort(keys, n, values);
     for (int i = 0; i < n; i++) {
-        assert(strcmp(correct_keys[i], keys[i]) == 0);
-        assert(strcmp(correct_values[i], values[i]) == 0);
+        assert(strcmp(correct_keys[i], keys[i]) == 0 && "Ошибка на тесте 2");
+        assert(strcmp(correct_values[i], values[i]) == 0 && "Ошибка на тесте 2");
     }
     free(keys);
     free(values);
@@ -34,8 +34,8 @@ void test_sort_third_order(char** correct_keys, char** correct_values) {
     int n = t->len;
     insertionSort(keys, n, values);
     for (int i = 0; i < n; i++) {
-        assert(strcmp(correct_keys[i], keys[i]) == 0);
-        assert(strcmp(correct_values[i], values[i]) == 0);
+        assert(strcmp(correct_keys[i], keys[i]) == 0 && "Ошибка на тесте 3");
+        assert(strcmp(correct_values[i], values[i]) == 0 && "Ошибка на тесте 3");
     }
     free(keys);
     free(values);
@@ -45,7 +45,7 @@ void test_sort_third_order(char** correct_keys, char** correct_values) {
 
 void test_binary_search(char** correct_keys, char** correct_values, int n) {
     for (int i = 0; i < n; i++) {
-        assert(strcmp(binarySearch(correct_keys, correct_values, n, correct_keys[i]), correct_values[i]) == 0);
+        assert(strcmp(binarySearch(correct_keys, correct_values, n, correct_keys[i]), correct_values[i]) == 0 && "Ошибка на тесте 4");
     }
 }
 
@@ -57,7 +57,7 @@ void test_binary_search_after_generation(char** correct_keys, char** correct_val
     int n = t->len;
     insertionSort(keys, n, values);
     for (int i = 0; i < n; i++) {
-        assert(strcmp(binarySearch(correct_keys, correct_values, n, correct_keys[i]), correct_values[i]) == 0);
+        assert(strcmp(binarySearch(keys, values, n, keys[i]), correct_values[i]) == 0 && "Ошибка на тесте 5");
     }
     free(keys);
     free(values);
@@ -87,6 +87,7 @@ int main() {
     test_sort_second_order(keys, values);
     test_sort_third_order(keys, values);
     test_binary_search(keys, values, n);
+    test_binary_search_after_generation(keys, values);
     free(keys);
     free(values);
     free(keys1);
