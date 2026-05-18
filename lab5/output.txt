@@ -1,0 +1,12 @@
+There is the graph programm, that can do topological sort
+At first, init a graph with n vertices: 1. add adge from x to y
+2. delete adge from x to y
+3. topological sort
+4. topological sort to file
+5. print graph
+6. print graph to file
+7. Exit
+Enter a number of vertices: Your choice: Enter a 'from' vertice: Enter a 'to' vertice: Your choice: Enter a 'from' vertice: Enter a 'to' vertice: Your choice: 0 1 2 
+Your choice: Topological sort was written to topsort.txt
+Your choice: Graph was written to graph.txt
+Your choice: 

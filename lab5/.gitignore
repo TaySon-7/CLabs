@@ -1,0 +1,13 @@
+build/
+cmake-build-*/
+
+*.o
+*.a
+*.dSYM/
+
+func
+main
+graph_demo
+graph_benchmark
+test_graph
+
